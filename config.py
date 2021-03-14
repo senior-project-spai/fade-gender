@@ -14,9 +14,6 @@ class Settings():
 
     # TFServer
     RESTfulURL: str = config('RESTful_URL')
-    ageURLstr: str = config('ageURL')
-    emotionURLstr: str = config('emotionURL')
-    faceURLstr: str = config('faceURL')
     genderURLstr: str = config('genderURL')
 
     @classmethod
@@ -24,23 +21,12 @@ class Settings():
         return f'{cls.RESTfulURL}{modelurl}'
 
     @property
-    def ageurl(self):
-        return self.tfserverurl(self.ageURLstr)
-    @property
-    def emotionurl(self):
-        return self.tfserverurl(self.emotionURLstr)
-    @property
-    def faceurl(self):
-        return self.tfserverurl(self.faceURLstr)
-    @property
     def genderurl(self):
         return self.tfserverurl(self.genderURLstr)
 
     # Model configuration
     FACE_POS_DEPLOY_TXT: str = config('FACE_POS_DEPLOY_TXT')
     FACE_POS_WEIGHT: str = config('FACE_POS_WEIGHT')
-
-    REPR_MODEL:str = config('REPR_MODEL')
 
 
 settings = Settings()
